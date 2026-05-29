@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: so2-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: so2-app
+  template:
+    metadata:
+      labels:
+        app: so2-app
+    spec:
+      containers:
+      - name: so2-app
+        image: pablomaldd/so2-app:latest
+        ports:
+        - containerPort: 5000
